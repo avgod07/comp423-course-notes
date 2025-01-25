@@ -143,6 +143,11 @@ What is the difference between the two methods to run your program? When we use 
 `go build` on the other hand is similar to the gcc. When we run `gcc main.c` for example an executable is created and in order to run this executable we must use `./a.out` to run the executable. Similarly, go build creates an
 executable that is the name of the directory and `./go-tutorial` runs the executable.
 
+| Command   | Description                                           |
+|-----------|-------------------------------------------------------|
+| `go run`  | Compiles and runs the Go program in one step.         |
+| `go build`| Compiles the program and creates an executable file.  |
+
 ## Part 4. Push Your Changes to the Remote Repository
 Remember the remote repository we created earlier? Let's push our changes to the remote so it's is updated.
 
