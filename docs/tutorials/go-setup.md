@@ -31,7 +31,8 @@ Citation: A lot of the material in this tutorial was directly reused from Kris J
    ```
 1. Create a README file
    ```bash
-   echo "# COMP423 Course Notes" > README.md
+   echo "# Setting up Dev Container for Hello World! in Go" > README.md
+   echo "Full tutorial for [Go Setup Tutorial](https://avgod07.github.io/comp423-course-notes/tutorials/go-setup/)." >> README.md
    git add README.md
    git commit -m "Initial commit with README"
    ```
