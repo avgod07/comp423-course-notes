@@ -10,10 +10,10 @@ Citation: A lot of the material in this tutorial was directly reused from Kris J
 
 
 ## Prerequisites
-1. A GitHub account: 
-1. Git installed: 
-1. Visual Studio Code (VS Code):
-1. Docker installed: 
+1. A GitHub account
+1. Git installed
+1. Visual Studio Code (VS Code)
+1. Docker installed
 
 ## Part 1: Project Setup: Creating a Repository
 
