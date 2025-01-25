@@ -5,15 +5,19 @@
 
 Hello! In this tutorial we will learn how to set up a dev container for Go. By the end of this tutorial you will have created a Go Development Container in VS Code, making development much easier.
 
+Citation: A lot of the material in this tutorial was directly reused from Kris Jordan's [Starting a Static Website Project with MkDocs](https://comp423-25s.github.io/resources/MkDocs/tutorial/) website. Specifically instructions for the Prerequisites, Part One, and Part Two were reused from the website and amended to fit the necessities of this tutorial. 
+
+
+
 ## Prerequisites
-1. A GitHub account: If you don’t have one yet, sign up at [GitHub](https://github.com).
-1. Git installed: [Install Git](https://git-scm.com) if you don’t already have it.
-1. Visual Studio Code (VS Code): Download and install it from [here](https://code.visualstudio.com).
-1. Docker installed: Required to run the dev container. [Get Docker here](https://www.docker.com).
+1. A GitHub account: 
+1. Git installed: 
+1. Visual Studio Code (VS Code):
+1. Docker installed: 
 
 ## Part 1: Project Setup: Creating a Repository
 
-### Step 1. Crerate a Local Directory and Initialize Git
+### Step 1. Create a Local Directory and Initialize Git
 
 1. Open your terminal or command prompt
 1. Create a new directory for your project. (Note: Of course, if you'd like to organize this tutorial somewhere else on your machine, go ahead and change into that parent directory first. By default this will be in your user's home directory.)
@@ -35,24 +39,24 @@ Hello! In this tutorial we will learn how to set up a dev container for Go. By t
 ### Step 2. Create a Remote Repository in Github
 1. Log in to your GitHub account and navigate to the [Create a New Repository](https://github.com/new) page.
 1. Fill in the details as follows:
-   * **Repository Name**: `comp423-course-notes`
-   * **Description**: "Course notes organized as a static website using Material for MkDocs."
+   * **Repository Name**: `go-tutorial`
+   * **Description**: "A quick tutorial on how to create a dev container with go and run a simple hello comp423 program"
    * **Visibility**: Public
 1. Do not initialize the repository with a README, .gitignore, or license.
 1. Click **Create Repository**
 
 ### Step 3. Link your Local Repository to GitHub
 1. Add the GitHub repository as a remote:
-   ```
-   git remote add origin https://github.com/<your-username>/comp423-course-notes.git
-   ```
-Replae `<your-username>` with your GitHub username.
-1. Check your default branch name with the subcommand git branch. If it's not main, rename it to main with the following command: git branch -M main. Old versions of git choose the name master for the primary branch, but these days main is the standard primary branch name.
+  ```
+  git remote add origin https://github.com/<your-username>/comp423-course-notes.git
+  ```
+Replace `<your-username>` with your GitHub username.
 1. Push your local commits to the GitHub repository:
-   ```
-   git push --set-upstream origin main
-   ```
-1. Back in your web browser, refresh your GitHub repository to see that the same commit you made locally has now been pushed to remote. You can use `git log` locally to see the commit ID and message which should match the ID of the most recent commit on GitHub. This is the result of pushing your changes to your remote repository.
+  ```
+  git push --set-upstream origin main
+  ```
+1. Back in your web browser, refresh your GitHub repository to see that the same commit you made locally has now been pushed to remote. 
+
 
 ## Part 2. Setting Up the Development Environment
 
@@ -64,6 +68,84 @@ Replae `<your-username>` with your GitHub username.
    `devcontainer/devcontainer.json`
 
    The `devcontainer.json` file defines the configuration for your development environment. Here, we're specifying the following:
-  
-   * `name`: A descriptive name for your dev container.
-   * `image`: The Docker image to use, in this case, the latest version of a Python environment. [Microsoft maintains a collection of base images for many programming language environments](https://hub.docker.com/r/microsoft/vscode-devcontainers), but you can also create your own!
+
+   ```json
+      {
+         "name": "Go Tutorial Walk Through",
+         "image": "mcr.microsoft.com/vscode/devcontainers/go:latest",
+         "customizations": {
+         "vscode": {
+            "settings": {},
+            "extensions": ["golang.go"]
+            }
+         }
+      }
+   ```
+
+### Step 2. Reopen the Project in a VSCode Dev Container
+Reopen the project in the container by pressing Ctrl+Shift+P (or Cmd+Shift+P on Mac), typing "Dev Containers: Reopen in Container," and selecting the option. This may take a few minutes while the image is downloaded and the requirements are installed.
+
+Lets quickly make sure that the dev container was set up correctly and check what version of Go was installed.
+
+1. Open your terminal in vscode and insert the following command:
+```
+go version
+```
+Now you should see that a recent version of Go was installed, meaning that your dev container was set up properly. 
+
+## Part 3. Your First Go Program (Hello Comp423)
+
+### Step 1. Create Go Module
+
+In order to do this, run the following command in your terminal:
+
+```
+go mod init go-tutorial
+```
+
+This should create a new directory in vscode where you will hold your go file (shown in the next step.)
+
+### Step 2. Create a New Go File
+
+Make a new file in your go-tutorial directory called `main.go`.
+
+### Step 3. Write Your First Go Program
+This following program will print Hello COMP423:
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello COMP423")
+}
+```
+### Step 4. Run Your Program
+In your vscode terminal copy and paste the command below:
+```
+go run main.go
+```
+or
+```
+# create an executable called go-tutorial
+go build
+
+# run the executable
+./go-tutorial
+```
+
+What is the difference between the two methods to run your program? When we use `go run` the program is compiled and executed immediately. This translates the code into an executable that is deleted right after it is run. 
+`go build` on the other hand is similar to the gcc. When we run `gcc main.c` for example an executable is created and in order to run this executable we must use `./a.out` to run the executable. Similarly, go build creates an
+executable that is the name of the directory and `./go-tutorial` runs the executable.
+
+## Part 4. Push Your Changes to the Remote Repository
+Remember the remote repository we created earlier? Let's push our changes to the remote so it's is updated.
+
+1. Run the following commands in your terminal to move our changes to the remote repository:
+```
+git remote add origin https://github.com/<your-username>/go-tutorial.git
+git add .
+git commit -m "Created our Hello Comp423 program"
+git push -u origin main
+```
+Make sure you replace `<your-username> with your github username! 
