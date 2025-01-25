@@ -143,9 +143,8 @@ Remember the remote repository we created earlier? Let's push our changes to the
 
 1. Run the following commands in your terminal to move our changes to the remote repository:
 ```
-git remote add origin https://github.com/<your-username>/go-tutorial.git
 git add .
 git commit -m "Created our Hello Comp423 program"
-git push -u origin main
+git push origin main
 ```
 Make sure you replace `<your-username> with your github username! 
