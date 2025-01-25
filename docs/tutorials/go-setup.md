@@ -31,7 +31,7 @@ Citation: A lot of the material in this tutorial was directly reused from Kris J
    ```
 1. Create a README file
    ```bash
-   echo "# Setting Up a Project with Go"
+   echo "# COMP423 Course Notes" > README.md
    git add README.md
    git commit -m "Initial commit with README"
    ```
@@ -48,7 +48,7 @@ Citation: A lot of the material in this tutorial was directly reused from Kris J
 ### Step 3. Link your Local Repository to GitHub
 1. Add the GitHub repository as a remote:
   ```
-  git remote add origin https://github.com/<your-username>/comp423-course-notes.git
+  git remote add origin https://github.com/<your-username>/go-tutorial.git
   ```
 Replace `<your-username>` with your GitHub username.
 1. Push your local commits to the GitHub repository:
@@ -103,7 +103,7 @@ In order to do this, run the following command in your terminal:
 go mod init go-tutorial
 ```
 
-This should create a new directory in vscode where you will hold your go file (shown in the next step.)
+This should create your go module which is required for your application to run. Go modules are used to manage dependencies and ensure that the correct versions of libraries and packages are used. I like to think of this module like a requirements.txt file, although it does have it's differences.
 
 ### Step 2. Create a New Go File
 
