@@ -82,6 +82,11 @@ Replace `<your-username>` with your GitHub username.
       }
    ```
 
+!!! info "Why use Dev Containers?"
+
+    Dev containers provide a fully configured development environment with all the tools and settings pre-installed. 
+    This makes sures that everyone working on the project has an identical setup, which helps in reducing "works on my machine" problems.
+
 ### Step 2. Reopen the Project in a VSCode Dev Container
 Reopen the project in the container by pressing Ctrl+Shift+P (or Cmd+Shift+P on Mac), typing "Dev Containers: Reopen in Container," and selecting the option. This may take a few minutes while the image is downloaded and the requirements are installed.
 
