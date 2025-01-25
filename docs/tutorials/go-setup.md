@@ -147,4 +147,3 @@ git add .
 git commit -m "Created our Hello Comp423 program"
 git push origin main
 ```
-Make sure you replace `<your-username> with your github username! 
